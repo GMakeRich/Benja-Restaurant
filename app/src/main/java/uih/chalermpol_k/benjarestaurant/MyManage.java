@@ -11,7 +11,7 @@ public class MyManage {
 
 
     //Explicit
-    private MyOpenHelper myOpenHelper;
+    private MYOpenHelper MYOpenHelper;
     private SQLiteDatabase writeSqLiteDatabase, readSqLiteDatabase;
 
     public static final String user_table = "userTABLE";
@@ -28,9 +28,9 @@ public class MyManage {
     public MyManage(Context context) {
 
         //Create Database
-        myOpenHelper = new MyOpenHelper(context);
-        writeSqLiteDatabase = myOpenHelper.getWritableDatabase();
-        readSqLiteDatabase = myOpenHelper.getReadableDatabase();
+        MYOpenHelper = new MYOpenHelper(context);
+        writeSqLiteDatabase = MYOpenHelper.getWritableDatabase();
+        readSqLiteDatabase = MYOpenHelper.getReadableDatabase();
 
     }   // Constructor
 
