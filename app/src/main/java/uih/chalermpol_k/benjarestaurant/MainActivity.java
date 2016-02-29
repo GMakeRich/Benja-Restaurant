@@ -1,5 +1,6 @@
 package uih.chalermpol_k.benjarestaurant;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -17,13 +18,27 @@ public class MainActivity extends AppCompatActivity {
         myManage = new MyManage(this);
 
         //Test add Value
+        //Delete All SQLite
+                deleteAllSQLite();
+
+
+
         testAddValue();
 
     }   // Main Method
+
+
 
     private void testAddValue() {
         myManage.addUser("testUser", "1234", "โดรามอน");
         myManage.addFood("ไข่เจียว", "100", "urlFood");
     }
 
+    private void deleteAllSQLite() {
+        SQLiteDatabase sqLiteDatabase = openOrCreateDatabase(MYOpenHelper.database_name
+        MODE_PRIVATE, null);
+        sqLiteDatabase.delete(MyManage.food_table, null, null);
+        sqLiteDatabase.delete(MyManage.user_table, null, null);
+
+    }
 }   // Main Class
